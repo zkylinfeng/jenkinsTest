@@ -21,7 +21,41 @@ android {
     buildTypes {
         release {
             // 不显示LOG
-            //buildConfigField "boolean", "LOG_DEBUG", "true"
+            //buildConfigField "boolean"m jm,,
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            // ++++++++++++*/"LOG_DEBUG", "true"
 
             minifyEnabled true
           //  zipAlignEnabled true
