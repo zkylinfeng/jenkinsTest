@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BuildApplication.iml" filepath="$PROJECT_DIR$/BuildApplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jenkinsTest.iml" filepath="$PROJECT_DIR$/jenkinsTest.iml" />
     </modules>
   </component>
 </project>

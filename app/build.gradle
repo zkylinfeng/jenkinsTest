@@ -1,5 +1,12 @@
 apply plugin: 'com.android.application'
 
+
+def getDate() {
+    def date = new Date()
+    def dateFormattedDate = date.format("yyyy-MM-dd-HH-mm-ss")
+    return dateFormattedDate
+}
+
 android {
     compileSdkVersion 26
     defaultConfig {
@@ -9,6 +16,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        flavorDimensions "versionCode"
     }
     signingConfigs {
         release {
@@ -18,67 +26,47 @@ android {
             keyPassword "zouky89"
         }
     }
+
+    productFlavors {
+        xiaomi {
+            manifestPlaceholders = [CHANNEL_VALUE: "xiaomi"]
+        }
+        huawei {
+            manifestPlaceholders = [CHANNEL_VALUE: "huawei"]
+        }
+        googleplay {
+            manifestPlaceholders = [CHANNEL_VALUE: "googleplay"]
+        }
+    }
     buildTypes {
         release {
-            // 不显示LOG
-            //buildConfigField "boolean"m jm,,
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            // ++++++++++++*/"LOG_DEBUG", "true"
-
             minifyEnabled true
-          //  zipAlignEnabled true
+            //  zipAlignEnabled true
             // 资源压缩，移除无用的资源文件
-          //  shrinkResources true
+            //  shrinkResources true
             // 混淆文件配置
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             // 签名信息配置（如果上面配置了defaultConfig则可以不用指定signingConfig）
             signingConfig signingConfigs.release
 
-       /*     applicationVariants.all { variant ->
+
+            applicationVariants.all { variant ->
                 variant.outputs.all { output ->
-                    def outputFile = output.outputFile
-                    println(outputFile)
-                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
-                        // 输出apk名称为myandroid_v1.0.0_2015-12-30_baidu.apk
-                        def fileName = "myandroid_v${defaultConfig.versionName}.apk"
-                        //println(outputFile.absolutePath)
-                        println(fileName)
-                        def outputFileName = new File(outputFile.absolutePath, fileName)
-                    }
+                    outputFileName = new File("../../../../../../../apk", "app_v${defaultConfig.versionName}_${variant.flavorName}_${getDate()}.apk")
                 }
-            }*/
+            }
+
+        }
+        debug {
+            minifyEnabled true
+            //  zipAlignEnabled true
+            // 资源压缩，移除无用的资源文件
+            //  shrinkResources true
+            // 混淆文件配置
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            // 签名信息配置（如果上面配置了defaultConfig则可以不用指定signingConfig）
+            signingConfig signingConfigs.release
+
         }
 
         dependencies {
